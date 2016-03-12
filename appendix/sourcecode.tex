@@ -1,0 +1,26 @@
+% !Mode:: "TeX:UTF-8"
+
+\titlecontents{chapter}[2em]{\vspace{.5\baselineskip}\bf\xiaosi\song}
+             {\prechaptername\CJKnumber{\thecontentslabel}\postchaptername\qquad}{}{}             							% 设置该选项为空是为了不让目录中显示页码
+\addcontentsline{toc}{chapter}{源代码}
+\setcounter{page}{1}    	% 单独从 1 开始编页码
+\fancypagestyle{plain}{                              
+    \fancyhf{}
+    \fancyhead[L]{\song\wuhao 附录}            
+    \fancyhead[R]{\song\wuhao 源代码}           
+    \fancyfoot[C]{\song\xiaowu~\thepage~}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+\chapter*{源代码}
+\noindent
+file:main.c
+\begin{lstlisting}
+int main(int argc, char ** argv) {
+    printf("Hello world!\n");
+    return 0;	/*`程序运行完毕`*/
+}
+\end{lstlisting}
+
+...

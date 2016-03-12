@@ -1,0 +1,22 @@
+% !Mode:: "TeX:UTF-8"
+
+\titlecontents{chapter}[2em]{\vspace{.5\baselineskip}\bf\xiaosi\song}
+             {\prechaptername\CJKnumber{\thecontentslabel}\postchaptername\qquad}{}{}             % 设置该选项为空是为了不让目录中显示页码
+\addcontentsline{toc}{chapter}{中文译文}
+\setcounter{page}{1}            % 单独从 1 开始编页码
+\fancypagestyle{plain}{                              
+    \fancyhf{}
+    \fancyhead[L]{\song\wuhao 附录}            
+    \fancyhead[R]{\song\wuhao 中文译文}           
+    \fancyfoot[C]{\song\xiaowu~\thepage~}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\chapter*{中文译文}
+
+本文\footnote{基于双空间金字塔匹配核的图像目标分类.陈海林,吴秀清} 提出一种基于局部特征的双空间金字塔匹配核(bi-space pyramid match kernel，BSPM)用于图像目标分类。利用局部特征在特征空间和图像空间建立统一的多分辨率框架，以便较好地表达图像的语义内容。该方法同时在特征空间和图像空间建立金字塔型结构，通过适当匹配可以得到正定核函数，该函数具有线性计算复杂度，可以运用于基于核的学习算法。将BSPM嵌入支持向量机对公共数据库中图像目标进行分类，实验结果表明该方法对图像具有良好的分类能力，优于词汇导向的金字塔匹配核和空间金字塔匹配核.
+
+
+图像目标的分类、识别是计算机视觉和模式识别领域的一个重要研究问题。由于图像目标存在视角变化、亮度变化、尺度、目标变形、遮挡、复杂背景以及目标类内差别等影响，使得图像目标的分类识别非常困难。针对这些问题，已提出具有各种不变性的局部特征[1-2]，如SIFT(scale invariant featuret ransform)[3]。Fergus等[4]提出基于局部特征的生成模型用于图像分类，Berg等[5]和Lazebnik等[6]提出基于几何对应的图像分类方法，这些方法没能较好地利用局部特征在特征空间的结构特性，而且计算复杂度很高[7]。最近提出基于特征包(bags-offeatures)的方法对图像目标分类[1,8-11]，取得了良好的效果，但这些方法没有利用局部特征之间的空间关系。Grauman提出的金字塔匹配核(pyramid match kernel,PMK)[9]具有比较优越的匹配、分类性能，但不适用于高维特征。最近，Grauman提出词汇导向的金字塔匹配核(vocabulary-guided pyramid match kernel,VGPM)[10]，并取得良好的性能，该方法首先利用一系列局部特征在特征空间建立金字塔型结构，然后将图像的局部特征嵌入金字塔结构，形成特征空间多分辨率直方图，再计算直方图匹配，得到核函数。为了利用局部特征在图像空间的位置关系，Lazebnik等[7]借鉴Grauman[9]的金字塔匹配核的思想，提出空间金字塔匹配核(spatial pyramidmatching kernel,SPM)，首先对局部特征量化，在二维图像空间建立金字塔，然后计算加权的子图像区域局部特征直方图交叉。
+
+...
