@@ -9,6 +9,7 @@ def run():
     root_directory = os.getcwd()
     os.system('cd ' + root_directory.replace(' ', '\ '))
     os.system('xelatex sdumain.tex')
+    os.system('bibtex  sdumain.tex')
     os.system('xelatex sdumain.tex')
     os.system('xelatex sdumain.tex')
 
@@ -26,7 +27,7 @@ def run():
             if portion[1] == '.aux' or portion[1] == '.log' or portion[1] == '.out' or portion[1] == '.thm' or portion[1] == '.toc' or portion[1] == '.bbl' or portion[1] == '.blg' or portion[1] == '.fdb_latexmk' or portion[1] == '.fls' or portion[1] == '.gz':
                 os.remove(os.path.join(os.getcwd(), folder_name))
 
-    print 'All log files cleaned'
+    print('All log files cleaned')
 
 
 if __name__ == '__main__':
