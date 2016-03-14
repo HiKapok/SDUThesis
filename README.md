@@ -9,9 +9,10 @@ Latex template for SDU thesis. 修改自天津大学的LaTeX模板
 
 # 编译
 
-* 打开终端
-* `cd`到模板目录下
-* `python compile.py`，脚本会自动执行多次编译（以保证目录、图、表等编号正确）并清理各种 log, synctex, aux 文件
+* 在最新的TexLive2015（Windows7）套装下使用自带的编辑器TeXworks能顺利编译通过。
+* 方法一：使用TeXworks。手动要执行四次编译，通过xelatex+bibtex+xelatex+xelatex就可以生成带有完整目录和参考文献信息的PDF文档。
+* 方法二：快速构建。由于本人水平实在有限，在使用TeXMaker进行编译时一直有问题，使用TeXMaker进行XeLaTeX编译总是会提醒没有找到日志文件，只能使用LaTeX方式勉强编译，但是编译生成的结果和正常结果是有区别的，可能是TeX套装的问题吧，希望有人能够解决！
+* 方法三：使用命令行切换到当前目录下，然后执行Python脚本compile.py或者Windows批处理文件compile.bat来一次性完成，该脚本可以实现自动对过程文件的清理以及自动重复编译。
 
 # License
 
