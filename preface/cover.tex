@@ -1,18 +1,72 @@
 % !Mode:: "TeX:UTF-8"
-%%  可通过增加或减少 setup/format.tex中的
-%%  第274行 \setlength{\@title@width}{8cm}中 8cm 这个参数来 控制封面中下划线的长度。
+
+\makeatletter
 
 \cheading{山东大学学士学位论文}      		% 设置正文的页眉，需要填上对应的毕业年份
-\ctitle{基于纹理特征的遥感图像分类方法研究} 	% 封面用论文标题，自己可手动断行
+\ctitle{基于纹理特征的遥感图像分类方法研究} 				% 封面用论文标题，自己可手动断行
 \caffil{控制科学与工程学院} 				% 学院名称
-\csubject{自动化}   						% 专业名称
-\cgrade{2012~级}            				% 年级
-\cauthor{XXX}            				% 学生姓名
-\cnumber{201200xxxxxx}        			% 学生学号
-\csupervisor{XXX}        				% 导师姓名
-\crank{副教授}              				% 导师职称
-
+\csubject{自动化}   		% 专业名称
+\cgrade{2012~级}            		% 年级
+\cauthor{XXX}         			% 学生姓名
+\cnumber{201200xxxxxx}        		% 学生学号
+\csupervisor{XXX}      	% 导师姓名
+\crank{副教授}              		% 导师职称
 \cdate{\the\year~年~\the\month~月~\the\day~日}
+
+\newlength{\@title@width}
+% 定义封面
+\setcounter{page}{1}
+\def\makecover{
+\phantomsection
+\pdfbookmark[-1]{\@ctitle}{ctitle}
+\begin{titlepage}
+
+\begin{center}
+	\vspace*{10pt}
+  	\begin{figure}[h]
+  		\centering
+  		\includegraphics[width=0.5\textwidth]{figures/sdupic}
+  	\end{figure}
+  	\vspace*{-30pt}
+  	
+  	\hei\cuhao{\bf{毕业论文(设计)\\}}
+  	
+  	\vspace{42pt}
+
+  	\song\yihao{\bf{
+  		\begin{tabular}{lc}
+    	论文题目:\;	& 基于纹理特征的遥感图像  \\
+					& 分类方法研究 \\
+  		\end{tabular}
+  	}}  
+  
+	\vspace{100pt}
+
+  	\setlength{\@title@width}{7cm}
+  	{
+  		\fontsize{16pt}{24pt}\selectfont\kai{\bf{
+  		\begin{tabular}{lc}
+    		学\qquad 院 &  \underline{\makebox[\@title@width][c]{\@caffil}} \\
+   			专\qquad 业 &  \underline{\makebox[\@title@width][c]{\@csubject}} \\
+    		年\qquad 级 &  \underline{\makebox[\@title@width][c]{\@cgrade}}\\
+    		姓\qquad 名 &  \underline{\makebox[\@title@width][c]{\@cauthor}} \\
+    		学\qquad 号 &  \underline{\makebox[\@title@width][c]{\@cnumber}}\\
+    		指导教师     &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
+  			\end{tabular}
+  		}}
+ 	}
+ 	\vspace{40pt}
+
+	\fontsize{15pt}{22pt}\selectfont\kai{\textbf{\@cdate}}
+\end{center}
+
+\end{titlepage}
+
+\clearpage
+\pagestyle{empty}
+\mbox{}
+\clearpage
+}
 
 \cabstract{
 这里是中文摘要。格式要求：(1)居中打印“摘要”二字（三号黑体），二字之间空一格。(2)“摘要”二字下空一行打印摘要内容（小四号宋体），摘要内容每段开头缩进两个字。切忌将应在引言中出现的内容（如研究背景等）写入摘要，一般也不要对论文内容作诠释和评论（尤其是自我评价）。摘要中尽量少用特殊字符以及由特殊字符组成的数学表达式。
@@ -26,6 +80,87 @@ paragraph.}
 
 \ekeywords{Skip one line down and write "KEYWORDS",then put the keywords,separated by commas(no punctuation at the end).the number of keywords varies from 3 to 7.}
 
+\makeatother
+
 \makecover
 
+%%%%%%%%%%%%%%%%%%%   Abstract and Keywords  %%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\setcounter{page}{1}
+\pagenumbering{Roman}
+\markboth{摘~要}{摘~要}
+\addcontentsline{toc}{chapter}{摘\quad 要}
+\chapter*{\centering\sanhao\hei 摘\quad 要}
+\song\xiaosi\selectfont
+\vbox{}
+\vspace*{-5pt}
+\@cabstract
+\vspace{\baselineskip}
+
+\hangafter=1\hangindent=52.3pt\noindent
+{\hei\xiaosi 关键词：} \@ckeywords
+
 \clearpage
+\pagestyle{empty}
+\mbox{}
+
+%%%%%%%%%%%%%%%%%%%   English Abstract  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\setcounter{page}{2}
+\markboth{ABSTRACT}{ABSTRACT}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+\chapter*{\centering\sanhao{\bf{ABSTRACT}}}
+\vspace{\baselineskip}
+\@eabstract
+\vspace{\baselineskip}
+
+\hangafter=1\hangindent=60pt\noindent
+{\textbf{Keywords:}} \@ekeywords
+
+\clearpage
+\pagestyle{empty}
+\mbox{}
+\clearpage
+
+\fancypagestyle{plain}{
+\fancyhf{}
+\renewcommand{\headrulewidth}{0 pt}
+\fancyfoot[C]{\song\xiaowu~\thepage~}
+}
+%%%%%%%%%%   目录   %%%%%%%%%%
+\defaultfont
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\titleformat{\chapter}{\centering\xiaoer\hei}{\chaptername}{\sepchapter}{} % 设置目录两字的格式
+
+\pdfbookmark[0]{目~~录}{mulu}
+\pagestyle{plain}
+
+\tableofcontents                                     % 中文目录
+
+\cleardoublepage
+\makeatother
+
+\mainmatter\defaultfont\sloppy\raggedbottom
+
+\makeatletter
+
+\fancypagestyle{plain}{                              % 设置开章页眉页脚风格
+    \fancyhf{}
+    \fancyhead[C]{\song\wuhao \@cheading}            % 首页页眉格式
+    \fancyfoot[C]{\song\xiaowu ~\thepage~}           % 首页页脚格式
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+% 设置其余正文部分页眉页脚风格
+\pagestyle{plain}
+\fancyhf{}
+\fancyhead[C]{\song\wuhao \@cheading}
+\fancyfoot[C]{\song\xiaowu ~\thepage~}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\makeatother
+
+\setcounter{page}{1}                                 % 单独从 1 开始编页码
+\titleformat{\chapter}{\centering\sanhao\hei}{\chaptername}{\sepchapter}{} % 恢复chapter标题格式要求
+

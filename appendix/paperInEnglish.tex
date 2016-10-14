@@ -13,10 +13,12 @@
 %\usepackage[a4paper,text={1\textbf{•}52.058 true mm,246.926 true mm},top= 28 true mm,left=33 true mm,head=10 true mm,headsep=6.5 true mm,foot=8 true mm]{geometry}
 %\newgeometry{top= 28 true mm,bottom=22 true mm,left=13 true mm,right=25 true mm,head=10 true mm,headsep=6.5 true mm,foot=8 true mm}
 %\newgeometry{text={172.058 true mm,246.926 true mm},top= 28 true mm,left=13 true mm,head=10 true mm,headsep=6.5 true mm,foot=8 true mm}
+% 设置该选项为空是为了不让目录中显示页码
 \titlecontents{chapter}[2em]{\vspace{.2\baselineskip}\bf\xiaosi\song}%
-             {\prechaptername\CJKnumber{\thecontentslabel}\postchaptername\qquad}{}{}             % 设置该选项为空是为了不让目录中显示页码
-\addcontentsline{toc}{chapter}{外文资料}
+             {\prechaptername\zhnumber{\thecontentslabel}\postchaptername\qquad}{}{}             
 \setcounter{page}{1}       % 如果需要从该页开始从 1 开始编页，则取消该注释
+\markboth{外文资料}{外文资料}
+\addcontentsline{toc}{chapter}{外文资料}
 \fancypagestyle{plain}{                              
     \fancyhf{}
     \fancyhead[L]{\song\wuhao 附录}
@@ -25,7 +27,15 @@
     \renewcommand{\headrulewidth}{0.5pt}
     \renewcommand{\footrulewidth}{0pt}
 }
-\chapter*{外文资料}
+\pagestyle{plain}
+\fancyhf{}
+\fancyhead[L]{\song\wuhao 附录}
+\fancyhead[R]{\song\wuhao 外文资料}           
+\fancyfoot[C]{\song\xiaowu~\thepage~}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\chapter*{\centering\sanhao\hei 外文资料}
+
 \begin{figure}[htbp] 
 \centering
 \vspace{-22pt}

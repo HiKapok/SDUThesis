@@ -8,10 +8,10 @@ import shutil
 def run():
     root_directory = os.getcwd()
     os.system('cd ' + root_directory.replace(' ', '\ '))
-    os.system('xelatex sdumain.tex')
-    os.system('bibtex  sdumain.tex')
-    os.system('xelatex sdumain.tex')
-    os.system('xelatex sdumain.tex')
+    os.system('xelatex paper.tex')
+    os.system('bibtex  paper.tex')
+    os.system('xelatex paper.tex')
+    os.system('xelatex paper.tex')
 
     # clean
     for folder_name in os.listdir('.'):

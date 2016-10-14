@@ -81,8 +81,9 @@
 %%%%%%%%%% Chapter and Section %%%%%%%%%%%%%
 \setcounter{secnumdepth}{3}
 \setlength{\parindent}{2em}
+\newcommand{\sepchapter}{1.5em}%set the sep between label and chapter name
 \renewcommand{\chaptername}{\prechaptername\zhnumber{\thechapter}\postchaptername}
-\titleformat{\chapter}{\centering\sanhao\hei}{\chaptername}{2em}{}
+\titleformat{\chapter}{\centering\sanhao\hei}{\chaptername}{\sepchapter}{}
 \titlespacing{\chapter}{0pt}{0.1\baselineskip}{1.6\baselineskip}
 \titleformat{\section}{\sihao\hei}{\thesection}{1em}{}
 \titlespacing{\section}{0pt}{0.15\baselineskip}{0.25\baselineskip}
@@ -104,9 +105,9 @@
 \makeatletter
 \long\def\@makecaption#1#2{
    \vskip\abovecaptionskip
-   \sbox\@tempboxa{\centering\wuhao\song{#1\qquad #2} }
+   \sbox\@tempboxa{\centering\wuhao\song{#1\quad #2} }
    \ifdim \wd\@tempboxa >\hsize
-     \centering\wuhao\song{#1\qquad #2} \par
+     \centering\wuhao\song{#1\quad #2} \par
    \else
      \global \@minipagefalse
      \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}
@@ -148,10 +149,10 @@
 % 重定义参考文献样式，来自thu
 \makeatletter
 \renewenvironment{thebibliography}[1]{
-    \titleformat{\chapter}{\raggedright\sihao\hei}{\chaptername}{2em}{}
-   \chapter*{\bibname}
-   \wuhao
-   \list{\@biblabel{\@arabic\c@enumiv}}
+	\titleformat{\chapter}{\raggedright\sihao\hei}{\chaptername}{\sepchapter}{}
+   	\chapter*{\bibname}
+   	\wuhao
+   	\list{\@biblabel{\@arabic\c@enumiv}}
         {\renewcommand{\makelabel}[1]{##1\hfill}
          \settowidth\labelwidth{0 cm}
          \setlength{\labelsep}{0pt}
@@ -167,8 +168,8 @@
     \widowpenalty4000
     \interlinepenalty4000
     \sfcode`\.\@m}
-   {\def\@noitemerr
-     {\@latex@warning{Empty `thebibliography' environment}}
+   	{\def\@noitemerr
+   	{\@latex@warning{Empty `thebibliography' environment}}
     \endlist\frenchspacing}
 \makeatother
 
@@ -202,87 +203,11 @@
 \def\ekeywords#1{\def\@ekeywords{#1}}\def\@ekeywords{}
 \def\cheading#1{\def\@cheading{#1}}\def\@cheading{}
 
+\makeatother
 
-\pagestyle{fancy}
-  \fancyhf{}
-  \fancyhead[C]{\song\wuhao \@cheading}  % 页眉显示山东大学学士学位论文
-  \fancyfoot[C]{\song\xiaowu ~\thepage~}
-\newlength{\@title@width}
-
-% 定义封面
-\def\makecover{
-%\cleardoublepage%
-\phantomsection
-\pdfbookmark[-1]{\@ctitle}{ctitle}
-\begin{titlepage}
-%\vspace*{-40pt}
-\begin{center}
-	\vspace*{10pt}
-  	\begin{figure}[h]
-  	\centering
-  	\includegraphics[width=0.5\textwidth]{figures/sdupic}
-  	\end{figure}
-  	\vspace*{-30pt}
-  	
-  	\hei\cuhao{\bf{ 毕业论文(设计)\\}}
-  	\vspace{42pt}
-
-  	\song\yihao{\bf{
-  	\begin{tabular}{lc}
-    论文题目:\;  & 基于纹理特征的遥感图像  \\
-      & 分类方法研究 \\
-  	\end{tabular}}}  
-  
- 	 \vspace{100pt}
-
-  	\setlength{\@title@width}{7cm}
-  	{\fontsize{16pt}{24pt}\selectfont\kai{\bf{
-  	\begin{tabular}{lc}
-    学\qquad 院&  \underline{\makebox[\@title@width][c]{\@caffil}} \\
-    专\qquad 业 &  \underline{\makebox[\@title@width][c]{\@csubject}} \\
-    年\qquad 级  &  \underline{\makebox[\@title@width][c]{\@cgrade}}\\
-    姓\qquad 名 &  \underline{\makebox[\@title@width][c]{\@cauthor}} \\
-    学\qquad 号  &  \underline{\makebox[\@title@width][c]{\@cnumber}}\\
-    指导教师 &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
-  	\end{tabular}}}
- }
- \vspace{40pt}
-
-\fontsize{15pt}{22pt}\selectfont\kai{\textbf{\@cdate}}
-\end{center}
-\end{titlepage}
-
-%%%%%%%%%%%%%%%%%%%   Abstract and Keywords  %%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
-\markboth{摘~要}{摘~要}
-\pdfbookmark[0]{摘~~要}{cabstract}
-%\addcontentsline{toc}{chapter}{摘~要}
-%\chapter*{\centering\sanhao\hei\bfseries 摘\qquad 要}
-\chapter*{\centering\sanhao\hei 摘\quad 要}
-\song\xiaosi\selectfont
-\vbox{}
-\vspace*{-5pt}
-\@cabstract
-\vspace{\baselineskip}
-
-\hangafter=1\hangindent=52.3pt\noindent
-{\hei\xiaosi 关键词：} \@ckeywords
-\thispagestyle{empty}
-
-%%%%%%%%%%%%%%%%%%%   English Abstract  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
-%\phantomsection
-\markboth{ABSTRACT}{ABSTRACT}
-\pdfbookmark[0]{ABSTRACT}{eabstract}
-%\addcontentsline{toc}{chapter}{ABSTRACT}
-\chapter*{\centering\sanhao{\bf{ABSTRACT}}}
-\vspace{\baselineskip}
-\vspace{\baselineskip}
-\@eabstract
-\vspace{\baselineskip}
-
-\hangafter=1\hangindent=60pt\noindent
-{\textbf{Keywords:}} \@ekeywords
-\thispagestyle{empty}
-}
+\makeatletter
+\renewcommand{\cleardoublepage}{\relax
+  \clearpage
+  \if@twoside \ifodd\c@page\relax\else
+  \clearpage\pagestyle{plain}\mbox{}\clearpage\fi\fi} %将plain换为empty可使补偿页没有页码
 \makeatother

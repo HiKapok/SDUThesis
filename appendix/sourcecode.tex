@@ -1,19 +1,28 @@
 % !Mode:: "TeX:UTF-8"
 
-\titlecontents{chapter}[2em]{\vspace{.2\baselineskip}\bf\xiaosi\song}
-             {\prechaptername\CJKnumber{\thecontentslabel}\postchaptername\qquad}{}{}             							% 设置该选项为空是为了不让目录中显示页码
+% 设置该选项为空是为了不让目录中显示页码
+\titlecontents{chapter}[2em]{\vspace{.2\baselineskip}\bf\xiaosi\song}%
+             {\prechaptername\zhnumber{\thecontentslabel}\postchaptername\qquad}{}{}             
+\setcounter{page}{1}       % 如果需要从该页开始从 1 开始编页，则取消该注释
+\markboth{源代码}{源代码}
 \addcontentsline{toc}{chapter}{源代码}
-\setcounter{page}{1}    	% 单独从 1 开始编页码
 \fancypagestyle{plain}{                              
     \fancyhf{}
-    \fancyhead[L]{\song\wuhao 附录}            
+    \fancyhead[L]{\song\wuhao 附录}
     \fancyhead[R]{\song\wuhao 源代码}           
     \fancyfoot[C]{\song\xiaowu~\thepage~}
     \renewcommand{\headrulewidth}{0.5pt}
     \renewcommand{\footrulewidth}{0pt}
 }
+\pagestyle{plain}
+\fancyhf{}
+\fancyhead[L]{\song\wuhao 附录}
+\fancyhead[R]{\song\wuhao 源代码}           
+\fancyfoot[C]{\song\xiaowu~\thepage~}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\chapter*{\centering\sanhao\hei 源代码}
 
-\chapter*{源代码}
 \noindent
 file:main.c
 \begin{lstlisting}

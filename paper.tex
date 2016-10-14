@@ -1,0 +1,37 @@
+% !Mode:: "TeX:UTF-8"
+% !TEX program = xelatex
+
+\def\usewhat{xelatex}
+
+\documentclass[UTF8,12pt,openany]{ctexbook}
+
+\input{setup/package}                                % 定义本文所使用宏包
+\graphicspath{{figures/}}                            % 定义所有的图像文件在 figures 子目录下
+\begin{document}                                     % 开始全文
+\input{setup/format}                                 % 完成对论文各个部分格式的设置
+
+%%%%%%%%%%%%  封面、摘要、目录  %%%%%%%%%%%%
+\input{preface/cover}
+%%%%%%%%%%%%%%%%%  正文  %%%%%%%%%%%%%%%%%
+\include{body/introductions}
+\include{body/howtouse}
+\include{body/others}
+%%%%%%%%%%%%%%%%%  结论  %%%%%%%%%%%%%%%%%
+\include{body/conclusion}
+%%%%%%%%%%%%%%%%%  致谢  %%%%%%%%%%%%%%%%%
+\include{body/acknowledgement}
+%%%%%%%%%%%%%%%  参考文献  %%%%%%%%%%%%%%%
+\defaultfont
+\bibliographystyle{references/SDUThesis}
+\phantomsection
+\markboth{参考文献}{参考文献}
+\addcontentsline{toc}{chapter}{参考文献}        % 参考文献加入到中文目录
+\nocite{*}                                    % 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中
+\bibliography{references/reference}
+
+\titleformat{\chapter}{\centering\sihao\hei}{\chaptername}{2em}{}
+\include{appendix/paperInEnglish}              % 外文资料
+\include{appendix/paperInChinese}              % 中文译文
+\include{appendix/sourcecode}              	   % 源代码
+\clearpage
+\end{document}                                 % 结束全文

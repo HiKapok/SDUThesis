@@ -1,18 +1,27 @@
 % !Mode:: "TeX:UTF-8"
 
-\titlecontents{chapter}[2em]{\vspace{.2\baselineskip}\bf\xiaosi\song}
-             {\prechaptername\CJKnumber{\thecontentslabel}\postchaptername\qquad}{}{}             % 设置该选项为空是为了不让目录中显示页码
+% 设置该选项为空是为了不让目录中显示页码
+\titlecontents{chapter}[2em]{\vspace{.2\baselineskip}\bf\xiaosi\song}%
+             {\prechaptername\zhnumber{\thecontentslabel}\postchaptername\qquad}{}{}             
+\setcounter{page}{1}       % 如果需要从该页开始从 1 开始编页，则取消该注释
+\markboth{中文译文}{中文译文}
 \addcontentsline{toc}{chapter}{中文译文}
-\setcounter{page}{1}            % 单独从 1 开始编页码
 \fancypagestyle{plain}{                              
     \fancyhf{}
-    \fancyhead[L]{\song\wuhao 附录}            
+    \fancyhead[L]{\song\wuhao 附录}
     \fancyhead[R]{\song\wuhao 中文译文}           
     \fancyfoot[C]{\song\xiaowu~\thepage~}
     \renewcommand{\headrulewidth}{0.5pt}
     \renewcommand{\footrulewidth}{0pt}
 }
-\chapter*{中文译文}
+\pagestyle{plain}
+\fancyhf{}
+\fancyhead[L]{\song\wuhao 附录}
+\fancyhead[R]{\song\wuhao 中文译文}           
+\fancyfoot[C]{\song\xiaowu~\thepage~}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\chapter*{\centering\sanhao\hei 中文译文}
 
 本文\footnote{基于双空间金字塔匹配核的图像目标分类.陈海林,吴秀清} 提出一种基于局部特征的双空间金字塔匹配核(bi-space pyramid match kernel，BSPM)用于图像目标分类。利用局部特征在特征空间和图像空间建立统一的多分辨率框架，以便较好地表达图像的语义内容。该方法同时在特征空间和图像空间建立金字塔型结构，通过适当匹配可以得到正定核函数，该函数具有线性计算复杂度，可以运用于基于核的学习算法。将BSPM嵌入支持向量机对公共数据库中图像目标进行分类，实验结果表明该方法对图像具有良好的分类能力，优于词汇导向的金字塔匹配核和空间金字塔匹配核.
 

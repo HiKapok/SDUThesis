@@ -14,7 +14,7 @@
 % 页眉页脚高度 1.18 inches = 29.972 mm
 % 210.058 - 33 - 25 = 152.058 mm
 % 296.926 - 22 - 28 = 246.926 mm
-\usepackage[a4paper,text={152.058 true mm,246.926 true mm},top= 28 true mm,left=33 true mm,head=10 true mm,headsep=6.5 true mm,foot=8 true mm]{geometry}
+\usepackage[a4paper,text={152.058 true mm,246.926 true mm},top= 28 true mm,left=33 true mm,headheight=10 true mm,headsep=6.5 true mm,footskip=8 true mm]{geometry}
                                             % 支持版面尺寸设置
 \usepackage[squaren]{SIunits}               % 支持国际标准单位
 \usepackage{titlesec}                       % 控制标题的宏包
@@ -44,19 +44,43 @@
 \usepackage{xcolor}
 %支持代码环境
 \usepackage{listings}
-\lstset{numbers=left,
-language=[ANSI]{C++},
+%\lstset{numbers=left,
+%language=[ANSI]{C++},
+%numberstyle=\tiny,
+%extendedchars=false,
+%showstringspaces=false,
+%breakatwhitespace=false,
+%breaklines=true,
+%captionpos=b,
+%keywordstyle=\color{blue!70},
+%commentstyle=\color{red!50!green!50!blue!50},
+%frame=shadowbox,
+%rulesepcolor=\color{red!20!green!20!blue!20},
+%escapeinside=``,
+%tabsize=4,xleftmargin=2em,xrightmargin=2em, aboveskip=1em
+%}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+backgroundcolor=\color{white},   % choose the background color
+basicstyle=\footnotesize\ttfamily,        % size of fonts used for the code
+numbers=left,
 numberstyle=\tiny,
-extendedchars=false,
+lineskip=-10pt,
+columns=fullflexible,
+breaklines=true,                 % automatic line breaking only at whitespace
+captionpos=b,                    % sets the caption-position to bottom
+tabsize=4,
+commentstyle=\color{mygreen},    % comment style
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+keywordstyle=\color{blue},       % keyword style
+stringstyle=\color{mymauve}\ttfamily,     % string literal style
+frame=single,
 showstringspaces=false,
-breakatwhitespace=false,
-breaklines=true,
-captionpos=b,
-keywordstyle=\color{blue!70},
-commentstyle=\color{red!50!green!50!blue!50},
-frame=shadowbox,
 rulesepcolor=\color{red!20!green!20!blue!20},
-escapeinside=``
+% identifierstyle=\color{red},
+language=[ANSI]{C++}
 }
 %支持算法环境
 \usepackage[boxed,ruled,lined]{algorithm2e}

@@ -137,7 +137,7 @@ ENTRY { address			% 地址
 % FUNCTION {bbl.anonymous}   { language empty$ { "Anon" }  { "佚名" } if$ }
 FUNCTION {bbl.anonymous} { "" }
 FUNCTION {bbl.etal}        { language empty$ { "\emph{et~al}" } { "等" } if$ }
-FUNCTION {bbl.sine.loco}   { language empty$ { "S.~l." } { "出版地不详" } if$ }
+FUNCTION {bbl.sine.loco}   { language empty$ { "S.~l." } { "博士学位论文" } if$ }
 FUNCTION {bbl.sine.nomine} { language empty$ { "s.~n." } { "出版者不详" } if$ }
 
 FUNCTION {bbl.comma}       { language empty$ { ", " } { "，" } if$ }
@@ -942,7 +942,7 @@ FUNCTION {format.translators}
 { translator empty$
     { "" }			% 无译者
     { new.block			% 有译者
-      translator format.names "，译" *
+      translator format.names "等译" *
     }
   if$
 }
