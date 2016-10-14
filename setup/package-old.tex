@@ -1,6 +1,5 @@
 % !Mode:: "TeX:UTF-8"
 %%%%%%%%%% Package %%%%%%%%%%%%
-\usepackage{CJK}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}                       % 支持插图处理
@@ -18,12 +17,10 @@
 \usepackage[a4paper,text={152.058 true mm,246.926 true mm},top= 28 true mm,left=33 true mm,headheight=10 true mm,headsep=6.5 true mm,footskip=8 true mm]{geometry}
                                             % 支持版面尺寸设置
 \usepackage[squaren]{SIunits}               % 支持国际标准单位
-
 \usepackage{titlesec}                       % 控制标题的宏包
 \usepackage{titletoc}                       % 控制目录的宏包
 \usepackage{fancyhdr}                       % fancyhdr宏包 支持页眉和页脚的相关定义
-%\usepackage{ctex}                     % 支持中文显示
-\usepackage{CJKpunct}                       % 精细调整中文的标点符号
+\usepackage{ctex}                     		% 支持中文显示
 \usepackage{color}                          % 支持彩色
 \usepackage{amsmath}                        % AMSLaTeX宏包 用来排出更加漂亮的公式
 \usepackage{amssymb}                        % 数学符号生成命令
@@ -40,10 +37,8 @@
 \usepackage{txfonts}                        % 字体宏包
 \usepackage{bm}                             % 处理数学公式中的黑斜体的宏包
 \usepackage[amsmath,thmmarks,hyperref]{ntheorem}  % 定理类环境宏包，其中 amsmath 选项用来兼容 AMS LaTeX 的宏包
-\usepackage{zhnumber} 
-%\usepackage{CJKnumb}                        % 提供将阿拉伯数字转换成中文数字的命令
+\usepackage{zhnumber}                        % 提供将阿拉伯数字转换成中文数字的命令
 \usepackage{indentfirst}                    % 首行缩进宏包
-\usepackage{CJKutf8}                        % 用在UTF8编码环境下，它可以自动调用CJK，同时针对UTF8编码作了设置
 %\usepackage{hypbmsec}                      % 用来控制书签中标题显示内容
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 \usepackage{xcolor}
